@@ -17,7 +17,7 @@ const DATA = {
     "CS graduate (MS, Kennesaw State University) with hands-on experience across full-stack development, cloud infrastructure, AI/ML pipelines, and data engineering. Built production-grade systems spanning fraud detection at 50M+ row scale, ethical AI simulations, and geospatial routing tools — with a foundation in web development, project management, and design from earlier coursework. Open to full-time Software Engineering, Data Science, and AI/ML roles.",
 
   quickFacts: [
-    { key: "Based in", value: "Atlanta, GA" },
+    { key: "Based in", value: "Smyrna, GA" },
     { key: "Focus", value: "Full-Stack · AI/ML · Cloud" },
     { key: "Education", value: "MS CS, Kennesaw State (4.0 GPA)" },
     { key: "Certifications", value: "AWS · Salesforce · Cisco · Java" },
@@ -60,22 +60,24 @@ const DATA = {
   experience: [
     {
       title: "Cloud Computing & DevOps Internship",
-      org: "APSCHE · NICE Computer Education (Government-Sponsored)",
+      org: "NICE Computer Education & Software Solutions (APSCHE-affiliated)",
       period: "Dec 2023 – May 2024",
-      certUrl: "https://drive.google.com/file/d/1gas3ezY3HJasA1dBRQSmaya6fw78p4PR/view?usp=drive_link",
+      certUrls: [
+        { label: "View Certificate", url: "https://drive.google.com/file/d/1gas3ezY3HJasA1dBRQSmaya6fw78p4PR/view?usp=drive_link" },
+      ],
       points: [
         "Gained hands-on experience with AWS cloud services, Docker containerization, and CI/CD pipeline fundamentals",
-        "Applied cloud deployment and DevOps workflows as the second track of an 11-month government-sponsored training program",
       ],
     },
     {
       title: "Data Analytics & Machine Learning Internship",
-      org: "APSCHE · NICE Computer Education (Government-Sponsored)",
+      org: "NICE Computer Education & Software Solutions (APSCHE-affiliated)",
       period: "Jun 2023 – Nov 2023",
-      certUrl: "https://drive.google.com/file/d/1JW_rgSqH-DHvw00owY6CsMgnK0CVjfST/view?usp=drive_link",
+      certUrls: [
+        { label: "View Certificate", url: "https://drive.google.com/file/d/1JW_rgSqH-DHvw00owY6CsMgnK0CVjfST/view?usp=drive_link" },
+      ],
       points: [
         "Built and evaluated supervised ML models; applied feature engineering, hyperparameter tuning, and performance benchmarking",
-        "Completed the first track of an 11-month government-sponsored training program spanning data analytics and applied ML",
       ],
     },
     {
@@ -145,10 +147,10 @@ const DATA = {
   ],
 
   certifications: [
-    { name: "AWS Cloud Practitioner", url: "https://www.credly.com/badges/89273238-7269-4170-8f3f-6186a48d6d5d/public_url" },
+    { name: "AWS Certified Cloud Practitioner", url: "https://www.credly.com/badges/89273238-7269-4170-8f3f-6186a48d6d5d/public_url" },
     { name: "Salesforce AI Associate", url: "https://drive.google.com/file/d/1SctJdt8gEFS82-wb9V-U516zGoPwKEc0/view?usp=sharing" },
-    { name: "Cisco Cybersecurity Essentials", url: "https://www.credly.com/badges/0ab0466f-1095-47c8-8a4f-c88c66fbde36/public_url" },
-    { name: "Full Stack Java — Minerva (A+)", url: "https://drive.google.com/file/d/1PrDUocA_9Nh_oRVp_I6QZLt6IISCOKLq/view?usp=drive_link" },
+    { name: "Introduction to Cybersecurity (Cisco)", url: "https://www.credly.com/badges/0ab0466f-1095-47c8-8a4f-c88c66fbde36/public_url" },
+    { name: "Diploma in Full Stack Java Developer — Minerva Institute of Computer Education (A+)", url: "https://drive.google.com/file/d/1PrDUocA_9Nh_oRVp_I6QZLt6IISCOKLq/view?usp=drive_link" },
   ],
 };
 
@@ -373,10 +375,14 @@ export default function Portfolio() {
                   <ul style={{ margin: "10px 0 0", paddingLeft: 18, color: "#A9B4C0", fontSize: 14.5, lineHeight: 1.7 }}>
                     {exp.points.map((p, j) => <li key={j}>{p}</li>)}
                   </ul>
-                  {exp.certUrl && (
-                    <a href={exp.certUrl} target="_blank" rel="noopener noreferrer" style={{ ...styles.projectLink, color: "#4FD1C5", marginTop: 10 }}>
-                      View certificate <ExternalLink size={13} />
-                    </a>
+                  {exp.certUrls && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 10 }}>
+                      {exp.certUrls.map((c, k) => (
+                        <a key={k} href={c.url} target="_blank" rel="noopener noreferrer" style={{ ...styles.projectLink, color: "#4FD1C5", marginTop: 0 }}>
+                          {c.label} <ExternalLink size={13} />
+                        </a>
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>
