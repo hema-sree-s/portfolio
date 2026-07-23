@@ -111,6 +111,13 @@ const DATA = {
       url: "https://fraudcascade-3c9hyql5mjafebmdnqltmc.streamlit.app",
     },
     {
+      title: "Job Search HQ",
+      tech: ["JavaScript", "Firebase Auth", "Firestore", "HTML/CSS"],
+      description:
+        "A multi-user job application tracker with Firebase Authentication (Email/Password + Google OAuth) and per-user Firestore data isolation. Tracks applications, target companies, and certification progress, with resume document management, all in a single deployed web app.",
+      url: "https://job-search-hq-zeta.vercel.app",
+    },
+    {
       title: "ResumeForge",
       tech: ["React.js", "Firebase (Firestore & Hosting)", "HTML", "CSS", "JavaScript"],
       description:
@@ -428,12 +435,10 @@ export default function Portfolio() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                   {p.tech.map((t, j) => <span key={j} className="chip" style={{ fontSize: 11.5, padding: "3px 9px" }}>{t}</span>)}
                 </div>
-                {p.url ? (
+                {p.url && (
                   <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ ...styles.projectLink, color: "#4FD1C5" }}>
                     View Project <ExternalLink size={13} />
                   </a>
-                ) : (
-                  <span style={{ ...styles.projectLink, color: "#5A6472" }}>Link coming soon</span>
                 )}
               </div>
             ))}
